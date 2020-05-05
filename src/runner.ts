@@ -125,17 +125,17 @@ const runSetup = async (test: Test, cwd: string, timeout: number): Promise<void>
 }
 
 const runCommand = async (test: Test, cwd: string, timeout: number): Promise<void> => {
-    // add a couple of consts for myself here
-    // totally ad-hoc
-    // I think I only need githubid for now
-    const ghid = process.env['GITHUB_ACTOR']
+  // add a couple of consts for myself here
+  // totally ad-hoc
+  // I think I only need githubid for now
+  const ghid = process.env['GITHUB_ACTOR']
   const child = spawn(test.run, {
     cwd,
     shell: true,
     env: {
       PATH: process.env['PATH'],
-        FORCE_COLOR: 'true',
-        GITHUB_ACTOR: ghid
+      FORCE_COLOR: 'true',
+      GITHUB_ACTOR: ghid
     },
   })
 
